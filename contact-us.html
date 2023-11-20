@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+    <link href="style.css" rel="stylesheet" />
+  
+    <title>Contact</title>
+</head>
+<body id="page5">
+<div class="tail-top">
+	<div class="tail-bottom">
+		<div id="main">
+			<div id="header">
+				<div class="row-1">
+					<div class="fleft"><a href="index.html">Cinema <span>World</span></a></div>
+					<ul>
+						<li><a href="index.html"><img src="images/icon1.gif" alt="" /></a></li>
+						<li><a href="contact-us.html"><img src="images/icon2-act.gif" alt="" /></a></li>
+					</ul>
+					<select onchange="window.location.href=this.value">
+						<option value="" selected disabled hidden>страницы</option>
+						<option value="index.html">Home</option>
+						<option value="allFilms.html">All films</option>
+						<option value="about.html">About</option>
+						<option value="contact-us.html">Contact Us</option>
+					</select>
+				</div>
+				<div class="row-2">
+					<ul>
+						<li><a href="index.html" >Home</a></li>
+						<li><a href="allFilms.html">All films</a></li>
+						<li><a href="about.html" >About</a></li>
+						<li><a href="contact-us.html" class="active">Contact us</a></li>
+					</ul>
+				</div>
+			</div>
+
+			
+			<div id="content"><div class="ic"></div>
+				<div class="line-hor"></div>
+				<div class="box">
+					<div class="border-right">
+						<div class="border-left">
+							<div class="inner">
+								<h3>Our <span>Contacts</span></h3>
+								<div class="address">
+										<span>Страна:</span>Казахстан<br />
+										<span>Номер телефона:</span>+77755552244<br />
+									<div class="extra-wrap"><br />
+										Если будут вопросы по работе сайте можете оставить сообщение мы обязательно ответим!</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="content">
+					<h3>Contact <span>Form</span></h3>
+					<form id="contacts-form" action="">
+						<fieldset>
+						<div class="field"><label>Имя</label><input type="text" value=""/></div>
+						<div class="field"><label>E-mail:</label><input type="text" value=""/></div>
+						<div class="field"><label>Ваше сообщение:</label><textarea cols="1" rows="1"></textarea></div>
+						<button type="submit">Отправить сообщение</button>
+						
+						</fieldset>
+					</form>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+</body>
+</html>

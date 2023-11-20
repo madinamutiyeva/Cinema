@@ -1,0 +1,144 @@
+<!DOCTYPE html >
+<html lang="en">
+
+<head>
+<title>reservation</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+
+
+</head>
+<body id="page5">
+<div class="tail-top">
+	<div class="tail-bottom">
+		<div id="main">
+			<div id="header">
+				<div class="row-1">
+					<div class="fleft"><a href="index.html">Cinema <span>World</span></a></div>
+					<ul>
+						<li><a href="index.html"><img src="images/icon1.gif" alt="" /></a></li>
+						<li><a href="contact-us.html"><img src="images/icon2.gif" alt="" /></a></li>
+
+					</ul>
+					<select onchange="window.location.href=this.value">
+						<option value="" selected disabled hidden>страницы</option>
+						<option value="index.html">Home</option>
+						<option value="allFilms.html">All films</option>
+						<option value="about.html">About</option>
+						<option value="contact-us.html">Contact Us</option>
+					</select>
+				</div>
+				<div class="row-2">
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="allFilms.html">All films</a></li>
+						<li><a href="about.html">About</a></li>
+						<li><a href="contact-us.html">Contact us</a></li>
+						<li><a href="reservation.html" class="active">Reservation</a></li>
+					</ul>
+				</div>
+			</div>
+<div id="content">
+    <div class="ic"></div>
+    <div class="line-hor"></div>
+    <div class="box">
+        <div class="border-right">
+            <div class="border-left">
+                <div class="inner">
+                    <h3>Contact <span>Form</span></h3>
+                    <form id="contacts-form" action="">
+						<div style="display: flex; justify-content: space-between; max-width: max-content;">
+                        <div class="left-content">
+                                <div class="field"><label>Имя</label>
+									<input type="text" placeholder="имя" required style="margin-bottom: 5px;" /></div>
+                                <div class="field"><label>E-mail:</label>
+									<input type="email" placeholder="email" required style="margin-bottom: 5px;"/></div>
+                                <div class="field"><label>Номер телефона:</label>
+                                    <input type="text" id="number" placeholder="+7XXXXXXXXXX" name="number" required pattern="[+7]{2}[0-9]{10}" title="Введите 11 цифр номера телефона" value="+7" style="margin-bottom: 5px;">
+                                </div>
+                                <div class="field"><label>Дата:</label><input type="date" id="date" name="date" required></div>
+                                <div class="field"><label>Время:</label> <select id="time" name="time" required>
+                                    <option value="10:00">10:00 AM</option>
+                                    <option value="12:00">12:00 PM</option>
+                                    <option value="14:00">02:00 PM</option>
+                                    <option value="16:00">04:00 PM</option>
+                                    <option value="18:00">06:00 PM</option>
+                                    <option value="20:00">08:00 PM</option>
+                                    <option value="22:00">10:00 PM</option>
+                                </select>
+                                </div>
+                                <div class="field"><label>Номер карты:</label>
+                                    <input type="text" id="cardNumber" name="cardNumber" placeholder="XXXX-XXXX-XXXX-XXXX" required pattern="\d{16}" value="1111111111111111" maxlength="16">
+                                </div>
+
+                        </div>
+                        <div class="right-content" style="margin-right: 50px;">
+                                <label for="seats">Выберите места:</label>
+                                <div class="seat-selection" style="margin-bottom: 40px; margin-top: 20px;" required></div>
+                        </div>
+					</div>
+					<div id="message" class="message" style="display: none; background-color: #1a191f; color: #fff; padding: 20px;">Выберите места перед продолжением.</div>
+					<button type="submit" style="margin: 5px;background-color: #1a191f; " name="button" >Забронировать билеты</button>
+
+ </div>                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+		</div>
+	</div>
+</div>
+<script>
+const seatSelection = document.querySelector('.seat-selection');
+	const totalSeats = 25;
+	let count = 0; 
+	
+	for (let i = 1; i <= totalSeats; i++) {
+		const seat = document.createElement('div');
+		seat.classList.add('seat');
+		seat.textContent = i;
+		seatSelection.appendChild(seat);
+	
+		seat.addEventListener('click', () => {
+			seat.classList.toggle('selected');
+	
+			if (seat.classList.contains('selected')) {
+				count++;
+			} else {
+				count--;
+			}
+	
+			updateButtonState();
+		});
+	}
+	
+	const registerButton = document.querySelector('button[name="button"]');
+	const messageElement = document.getElementById('message');
+	const selectedSeats = []; 
+	
+	function updateButtonState() {
+		if (count > 0) {
+			registerButton.removeAttribute('disabled');
+			messageElement.style.display = 'none';
+		} else {
+			registerButton.setAttribute('disabled', 'disabled');
+			messageElement.style.display = 'block';
+		}
+	
+		selectedSeats.length = 0; 
+		const selectedElements = document.querySelectorAll('.seat.selected');
+		selectedElements.forEach((element) => {
+			selectedSeats.push(String(parseInt(element.innerText)));
+		});
+	}
+	
+	updateButtonState(); // Изначально делаем кнопку неактивной
+	
+	
+	   </script>
+</body>
+</html>
